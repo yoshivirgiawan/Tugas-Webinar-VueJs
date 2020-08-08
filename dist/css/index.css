@@ -1,0 +1,233 @@
+* {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+body {
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    font-weight: 400;
+    color: #141414;
+}
+
+h2 {
+    line-height: 1.5;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+label {
+    color: gray;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+.header-wrapper {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+    background-color: white;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #665dfe;
+}
+
+.logo:hover {
+    color: #665dfe;
+}
+
+.nav-color {
+    color: #000000;
+    font-weight: 500;
+    transition: .5s all ease;
+}
+
+.nav-color:hover {
+    color: #133efa;
+}
+
+.nav-item .active {
+    color: #133efa;
+}
+
+.home {
+    background: url("../../assets/img/hero.jpg") no-repeat;
+}
+
+.welcome {
+    font-size: 36px;
+    text-align: center;
+    color: #fff;
+    font-weight: 700;
+}
+
+.box {
+    box-sizing: content-box !important;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.title-box {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(126, 126, 126, 0.2);
+}
+
+.form-black {
+    border: 1px solid #141414 !important;
+}
+
+.content {
+    position: relative;
+    margin-top: -109px;
+}
+
+.box {
+    box-shadow: 0px 5px 10px rgba(18, 8, 81, 0.1);
+}
+
+.close-icon {
+	border: none;
+	background-color: white;
+    outline: none;
+    cursor: pointer;
+    height: 36px;
+    width: 36px;
+	position: absolute;
+	right: 8px;
+	top: 36px;
+	padding: 2px;
+	font-weight: bold;
+    font-size: 12px;
+    
+}
+
+.close-icon:focus {
+    outline: none;
+}
+
+.pagination-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.daftar {
+    padding: 0;
+}
+
+.judul-hasil {
+    color: #111111;
+    font-weight: 700;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.total {
+    padding-top: 4.875px;
+}
+
+.halaman {
+    padding-top: 4.875px;
+}
+
+.profile-container {
+    background: #f8f9fa;
+}
+
+.header-about {
+    font-size: 50px;
+    font-weight: 700;
+    color: black;
+}
+
+.profil {
+    width: 100%;
+}
+
+.profil th, td {
+    padding: 10px;
+}
+
+.profil th {
+    font-weight: 600;
+    color: #000000;
+    width: 180px;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.profil td {
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    font-weight: 400;
+    color: #999999;
+}
+
+footer {
+    font-size: 16px;
+    background: #000000;
+    padding: 7em 0;
+}
+
+.footer-content-header {
+    color: #fff;
+    margin-bottom: 40px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.footer-content p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-content ul li {
+    margin-bottom: 10px;
+}
+
+.footer-content ul li a {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.copyright p {
+    color: #999999;
+}
+
+.data li span {
+    display: table-cell;
+    vertical-align: top;
+}
+
+.icon {
+    width: 40px;
+    font-size: 18px;
+    padding-top: 2px;
+}
+
+.icon i, .text {
+    color: rgba(255,255,255,.6);
+}

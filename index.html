@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+    <link rel="stylesheet" href="dist/css/index.css">
+    <title>Project Webinar</title>
+</head>
+<body>
+    <div id="app">
+        <nav class="header-wrapper navbar navbar-expand-lg d-flex">
+            <div class="container">
+                <a href="#" class="logo navbar-brand">YOSHI</a>
+                <div class="navbar-collapse collapse">
+                    <ul class="navbar-nav ml-auto" id="navi">
+                        <li class="nav-item"><a href="#page-1" class="nav-color nav-link p-4 active">Home</a></li>
+                        <li class="nav-item"><a href="#page-2" class="nav-color nav-link p-4">About Me</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    
+        <div class="home p-4" id="page-1">
+            <div class="container">
+                <div class="row">
+                    <div class="p-4 my-auto">
+                        <div class="welcome my-4">WELCOME TO MY WEBSITE</div>
+                    </div>
+                        <img class="float-right" src="assets/img/hero-right.png" alt="">
+                </div>
+            </div>
+        </div>
+    
+        <div class="content mb-4">
+            <div class="container">
+                <div class="box my-auto">
+                    <div class="title-box p-4">
+                        Cari Teks Video
+                    </div>
+                    <div class="form-content p-4">
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>URL VIDEO</label>
+                                    <input type="text" class="form-control" placeholder="Enter URL Video" v-model="url">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>TEXT</label>
+                                    <input type="text" class="form-control" placeholder="Enter Text" v-model="kataKunci"><button class="close-icon" type="button" v-if="kataKunci!=''" @click="bersihkan">&times;</button>
+                                </div>
+                              </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="hasil mb-4" v-if="kataKunci.length>=1">
+            <div class="container">
+                <h3 class="judul-hasil" v-if="kataKunci.length<3">Text Minimal 3 Huruf</h3>
+                <h3 class="judul-hasil" v-if="paginasi.total==0 && kataKunci.length>=3">Hasil Pencarian Dengan Kata Kunci: {{ kataKunci }}<br>Tidak Ditemukan</h3>
+                <div class="ditemukan" v-if="paginasi.total>0">
+                    <h3 class="judul-hasil">Hasil Pencarian Dengan Kata Kunci: {{ kataKunci }}</h3>
+                    <ul class="daftar mb-4 p-2">
+                        <li v-for="(hasil, i) in daftarHasil" :key="i" class="mb-4">
+                            <span v-html="hasil.text"></span>
+                            <a :href="`${url}&t=${hasil.start}s`" target="_blank">Buka</a>
+                        </li>
+                    </ul>
+                    <div class="pagination-wrapper">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <button class="page-link pertama" @click="navigasi('first')" :disabled="!paginasi['first']">First</button>
+                            </li>
+                            <li class="page-item">
+                                <button class="page-link sebelumnya" @click="navigasi('prev')" :disabled="!paginasi['prev']">Previous</button>
+                            </li>
+                            <li class="page-item">
+                                <button class="page-link selanjutnya" @click="navigasi('next')" :disabled="!paginasi['next']">Next</button>
+                            </li>
+                            <li class="page-item">
+                                <button class="page-link terakhir" @click="navigasi('last')" :disabled="!paginasi['last']">Last</button>
+                            </li>
+                        </ul>
+                        <div class="items">
+                            <div class="total font-weight-bold">Total Hasil: {{ paginasi.total }}</div>
+                        </div>
+                        <div class="items">
+                            <div class="halaman font-weight-bold">{{ paginasi.page }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="profile-container mt-5 py-5" id="page-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <img src="assets/img/fotoku2.png" alt="" width="480px">
+                    </div>
+                    <div class="col-lg-6 py-5 pl-md">
+                        <h2 class="header-about mb-4">About Me</h2>
+                        <div class="profil-wrapper">
+                            <table class="profil">
+                                <tbody>
+                                    <tr>
+                                        <th>Nama</th>
+                                        <td>Achmed Yoshi Virgiawan</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Tempat Lahir</th>
+                                        <td>Lamongan</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Tanggal Lahir</th>
+                                        <td>26 Juni 2001</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Alamat</th>
+                                        <td>Sidomulyo Utara Gg. Himalaya Lamongan</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Email</th>
+                                        <td>achmedyoshivirgiawan@gmail.com</td>
+                                    </tr>
+                                    <tr>
+                                        <th>No. Telepon</th>
+                                        <td>+6281270203899</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Instagram</th>
+                                        <td>@yoshivirgiawan</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="container">
+                <div class="row mb-5">
+                    <div class="col-md">
+                        <div class="footer-content">
+                            <h2 class="footer-content-header">
+                                About
+                            </h2>
+                            <p>
+                                Website ini adalah website yang digunakan untuk mencari text pada subtitle video sesuai yang kita inginkan.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="footer-content">
+                            <h2 class="footer-content-header">
+                                Links
+                            </h2>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="">
+                                        Home
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        About Me
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="footer-content">
+                            <h2 class="footer-content-header">
+                                Have a Questions?
+                            </h2>
+                            <ul class="data">
+                                <li>
+                                    <span class="icon">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </span>
+                                    <span class="text">
+                                        Sidomulyo Utara Gg. Himalaya Lamongan, Jawa Timur, Indonesia
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="icon">
+                                        <i class="fas fa-phone-alt"></i>
+                                    </span>
+                                    <span class="text">
+                                        +6281270203899
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </span>
+                                    <span class="text">
+                                        achmedyoshivirgiawan@gmail.com
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright text-center">
+                    <p>
+                        Copyright &copy; {{ year }} All rights reserved | This template is made with by Achmed Yoshi Virgiawan</a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="dist/js/debounce.js"></script>
+    <script src="dist/js/index.js"></script>
+    <script src="dist/js/scrollspy.js"></script>
+</body>
+</html>
